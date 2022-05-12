@@ -1,38 +1,45 @@
-.App {
+.header {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: larger;
+  font-weight: 600;
+  color: white;
+  background-image: url("./images/background.jpg") ;
+  border: 1px solid white;
+  width:100%;
+  
+}
+.header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header h1 {
+  text-align: center;
+}
+.description {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.menuBar {
+  color:rgb(92, 54, 31) ;
+  padding: 15px;
+  background-color: rgb(247, 242, 238);
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+.menuBar a {
+  padding:15px 20px;
+  text-align: center;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .menuBar a:hover {
+  background-color: rgb(167, 144, 125);
   }
-  to {
-    transform: rotate(360deg);
+
+  .menuBar a.active {
+    background-color: rgb(157, 104, 61);
   }
-}
+  
