@@ -1,7 +1,7 @@
 export function JokesList () {
     return(
         <>
-        <ul className="jokesList">
+        <ul className="jokes-list">
             <li>t</li>
             <li>t</li>
             <li>t</li>

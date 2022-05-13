@@ -13,11 +13,6 @@ export function Menu() {
       <li><a href=".">Categorie 1</a></li>
       <li><a href=".">Categorie 1</a></li>
       <li><a href=".">Categorie 1</a></li>
-      <li><a href=".">Categorie 1</a></li>
-      <li><a href=".">Categorie 1</a></li>
-      <li><a href=".">Categorie 1</a></li>
-      <li><a href=".">Categorie 1</a></li>
-     
       </div>
       </ul>
     </nav>
