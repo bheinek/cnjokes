@@ -49,6 +49,10 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "eslint-plugin-testing-library": "^3.9.0"
+    "eslint-plugin-testing-library": "^3.9.0",
+    "prettier": "2.6.2"
+    
   }
+  
 }
+
