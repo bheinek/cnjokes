@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+fetch(`https://api.chucknorris.io/jokes/categories`,"GET" )
+const [data, setData] = useState(null);
+const [error, setError] = useState(null);
+  
+    useEffect(() => {
+      fetch(`https://api.chucknorris.io/jokes/categories`)
+      .then((response) => {
+        if(!response){
+          throw new Error(
+            `This is an HTTP error: The status is ${response.status}`
+          );
+        }
+        return response.json()})
+      .then((actualData) => {
+        setData(actualData);
+        setError(null)})
+      .catch((err)=>{
+        setError(err.message);
+        setData(null);
+      })
+     }, [])
+    
+
+     return (
+       <div>
+         <ul>
+        {data &&
+          data.map((category) => (
+            <li>
+              <h3>{category}</h3>
+            </li>
+          ))}
+      </ul>
+
+       </div>
+     )
 }
 
 export default App;
