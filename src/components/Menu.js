@@ -1,10 +1,11 @@
 import '../Menu.css';
+
 export function Menu() {
   return (
     <nav className="navbar">
       <ul className="nav-links">
         <input type="checkbox" id="checkbox-toggle" />
-        <label for="checkbox-toggle" class="hamburger">
+        <label htmlFor="checkbox-toggle" className="hamburger">
           &#9776;
         </label>
         <div className="menu">

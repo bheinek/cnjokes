@@ -16,7 +16,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "yarn lint:ci --fix",
+    "format": "prettier \"{src,bin,scripts}/**/*.{ts,tsx,js,jsx,json,gql,scss,css}\" \"./.?*.{md,js,yaml,json}\"",
+    "lint:ci": "eslint \"src/**/*.{js,ts,tsx}\" --format=stylish",
+    "format:ci": "yarn format --list-different"
   },
   "eslintConfig": {
     "extends": [
