@@ -1,11 +1,13 @@
 
 import './App.css';
-import {Data} from "./components/Data"
+import { FetchData } from './components/FetchData';
+import { FetchRandomJoke } from './components/FetchRandomJoke';
 
 function App() {
   return(
 <div>
-  <Data />
+  <FetchData />
+  <FetchRandomJoke />
 </div>
 )
 }
