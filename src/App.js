@@ -4,10 +4,13 @@ import { FetchData } from './components/FetchData';
 import { FetchRandomJoke } from './components/FetchRandomJoke';
 
 function App() {
+
   return(
 <div>
   <FetchData />
-  <FetchRandomJoke />
+  <FetchRandomJoke category="" />
+  <FetchRandomJoke category="animal" />
+
 </div>
 )
 }

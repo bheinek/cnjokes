@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export function FetchRandomJoke () {
-    const [data, setData] = useState(null);
+export function FetchRandomJoke ({category,}) {
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -10,9 +10,9 @@ export function FetchRandomJoke () {
         const getData = async () => {
           try {
             const response = await axios.get(
-              `https://api.chucknorris.io/jokes/random`
+              `https://api.chucknorris.io/jokes/random?${category}`
             );
-            setData(response.data.value);
+           setData(response.data);
             setError(null);
           } catch (err) {
             setError(err.message);
@@ -22,7 +22,7 @@ export function FetchRandomJoke () {
           }
         };
         getData();
-      }, []);
+      }, [category]);
       
       return (
         <div >
@@ -30,7 +30,7 @@ export function FetchRandomJoke () {
           {error && (
             <div>{`There is a problem fetching the post data - ${error}`}</div>
           )}
-       <p>{data}</p>
+          {data.value}
         </div>
       );
 
