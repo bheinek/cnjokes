@@ -1,16 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export function FetchRandomJoke ({category,}) {
-    const [data, setData] = useState([]);
+export function FetchRandomJoke ({slug,}) {
+    const [data, setData] = useState("");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const regexSlug = /random\?category=.*/;
 
+    
     useEffect(() => {
         const getData = async () => {
           try {
             const response = await axios.get(
-              `https://api.chucknorris.io/jokes/random?${category}`
+              `https://api.chucknorris.io/jokes/${slug}`
             );
            setData(response.data);
             setError(null);
@@ -22,8 +24,9 @@ export function FetchRandomJoke ({category,}) {
           }
         };
         getData();
-      }, [category]);
-      
+      }, []);
+
+      if(slug ==="random"){
       return (
         <div >
           {loading && <div>A moment please...</div>}
@@ -32,7 +35,18 @@ export function FetchRandomJoke ({category,}) {
           )}
           {data.value}
         </div>
-      );
+      );}
+      else if (!loading && slug === "categories") {
+        
+        return (
+          data.map((d,i)=><li key={i} >{d}</li>)
+        );
+      }
+      else if (!loading && regexSlug.test(slug)) {
+        return (
+          data.value
+        );
+      }
 
 
 }
