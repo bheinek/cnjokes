@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Menu } from "./Menu";
 
-export function FetchRandomJoke ({slug,}) {
-    const [data, setData] = useState("");
+export function Fetch ({slug,}) {
+    const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const regexSlug = /random\?category=.*/;
@@ -24,22 +25,21 @@ export function FetchRandomJoke ({slug,}) {
           }
         };
         getData();
-      }, []);
+      }, [slug]);
 
+      if(loading) return "A moment please...";
+      else if(error) return`There is a problem fetching the post data - ${error}`
+      else {
       if(slug ==="random"){
       return (
-        <div >
-          {loading && <div>A moment please...</div>}
-          {error && (
-            <div>{`There is a problem fetching the post data - ${error}`}</div>
-          )}
-          {data.value}
-        </div>
-      );}
-      else if (!loading && slug === "categories") {
         
+          data.value
+        
+      );}
+      else if (!loading && slug === "categories" && data) {
         return (
-          data.map((d,i)=><li key={i} >{d}</li>)
+          
+          <Menu categories={data} />
         );
       }
       else if (!loading && regexSlug.test(slug)) {
@@ -48,5 +48,5 @@ export function FetchRandomJoke ({slug,}) {
         );
       }
 
-
+}
 }

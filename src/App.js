@@ -1,15 +1,14 @@
 
 import './App.css';
-import { FetchRandomJoke } from './components/FetchRandomJoke';
+import { Fetch } from './components/Fetch';
 
 function App() {
-const category = ["animal", "dev"]
 
   return(
 <div>
-  <FetchRandomJoke slug="categories" />
-  <FetchRandomJoke slug="random" />
-  <FetchRandomJoke slug={`random?category=${category[1]}`}/>
+<Fetch slug="random"/>
+<Fetch slug="categories"/>
+
   
 
 
