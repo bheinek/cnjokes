@@ -1,13 +1,15 @@
 
 import './App.css';
+import { useFetch } from './hooks/useFetch';
 import { Fetch } from './components/Fetch';
 
 function App() {
-
+  const categories = useFetch("random")
+console.log(categories)
   return(
 <div>
-<Fetch slug="random"/>
-<Fetch slug="categories"/>
+
+
 
   
 
