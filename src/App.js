@@ -1,5 +1,5 @@
-import { Header } from './components/Header';
-import { Menu } from './components/Menu';
+import { Header } from './components/header/Header';
+import { Menu } from './components/menu/Menu';
 
 import './App.css';
 
