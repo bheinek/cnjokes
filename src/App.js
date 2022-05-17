@@ -1,21 +1,19 @@
+import { Fetch } from './components/Fetch';
+import { useFetch } from './hooks/useFetch';
+import { Header, Menu } from './components';
 
 import './App.css';
-import { useFetch } from './hooks/useFetch';
-import { Fetch } from './components/Fetch';
 
 function App() {
   const categories = useFetch("random")
 console.log(categories)
-  return(
-<div>
 
-
-
-  
-
-
-</div>
-)
+  return (
+    <div>
+      <Header />
+      <Menu />
+    </div>
+  );
 }
 
 export default App;
