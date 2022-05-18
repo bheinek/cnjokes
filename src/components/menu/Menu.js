@@ -1,37 +1,32 @@
+import { useFetch } from '../../hooks';
+import { MenuLayout } from '../';
+
 import './Menu.css';
 
 export function Menu() {
+  const categories = useFetch('categories');
+  if (categories.loading) {
+    return (
+      <MenuLayout>
+        <li> a moment please..</li>
+      </MenuLayout>
+    );
+  }
+  if (categories.error) {
+    return (
+      <MenuLayout>
+        <li> There is a problem fetching data ${categories.error}</li>
+      </MenuLayout>
+    );
+  }
+
   return (
-    <nav className="navbar">
-      <ul className="nav-links">
-        <input type="checkbox" id="checkbox-toggle" />
-        <label htmlFor="checkbox-toggle" className="hamburger">
-          &#9776;
-        </label>
-        <div className="menu">
-          <li>
-            <a href=".">Categorie 1</a>
-          </li>
-          <li>
-            <a href=".">Categorie 1</a>
-          </li>
-          <li>
-            <a href=".">Categorie 1</a>
-          </li>
-          <li>
-            <a href=".">Categorie 1</a>
-          </li>
-          <li>
-            <a href=".">Categorie 1</a>
-          </li>
-          <li>
-            <a href=".">Categorie 1</a>
-          </li>
-          <li>
-            <a href=".">Categorie 1</a>
-          </li>
-        </div>
-      </ul>
-    </nav>
+    <MenuLayout>
+      {categories.data.map((category, i) => (
+        <li key={i}>
+          <a href=".">{category.toUpperCase()}</a>
+        </li>
+      ))}
+    </MenuLayout>
   );
 }
