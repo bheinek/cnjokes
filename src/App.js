@@ -1,12 +1,11 @@
-import { Header, Menu } from './components';
-
-import './App.css';
+import { Header, JokesList, Menu } from './components';
 
 function App() {
   return (
     <div>
       <Header />
       <Menu />
+      <JokesList />
     </div>
   );
 }

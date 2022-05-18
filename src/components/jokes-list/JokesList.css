@@ -1,0 +1,9 @@
+.body {
+  max-width: 50%;
+  margin: auto;
+  font: 1.2em 'Fira Sans', sans-serif;
+}
+.body p {
+  text-align: center;
+  padding-top: 30px;
+}
