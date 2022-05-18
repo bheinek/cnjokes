@@ -1,29 +1,26 @@
-import { useFetch } from '../hooks/useFetch';
+import { MenuLayout, useFetch } from '../';
 
 import './Menu.css';
 
 export function Menu() {
   const categories = useFetch('categories');
-  if (categories.loading) return <div>A moment please...</div>;
+  if (categories.loading)
+    return <MenuLayout func={<li> a moment please..</li>} />;
   else if (categories.error)
     return (
-      <div>There is a problem fetching the post data - ${categories.error}</div>
+      <MenuLayout
+        func={<li> There is a problem fetching data ${categories.error}</li>}
+      />
     );
   else {
     return (
-      <nav className="navbar">
-        <ul className="nav-links">
-          <input type="checkbox" id="checkbox-toggle" />
-          <label htmlFor="checkbox-toggle" className="hamburger">
-            &#9776;
-          </label>
-          <div className="menu">
-            {categories.data.map((category, i) => (
-              <li key={i}>{category.toUpperCase()}</li>
-            ))}
-          </div>
-        </ul>
-      </nav>
+      <MenuLayout
+        func={categories.data.map((category, i) => (
+          <li key={i}>
+            <a href=".">{category.toUpperCase()}</a>
+          </li>
+        ))}
+      />
     );
   }
 }
