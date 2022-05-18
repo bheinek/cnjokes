@@ -5,18 +5,20 @@ import './Menu.css';
 
 export function Menu() {
   const categories = useFetch('categories');
-  if (categories.loading)
+  if (categories.loading) {
     return (
       <MenuLayout>
         <li> a moment please..</li>
       </MenuLayout>
     );
-  if (categories.error)
+  }
+  if (categories.error) {
     return (
       <MenuLayout>
         <li> There is a problem fetching data ${categories.error}</li>
       </MenuLayout>
     );
+  }
 
   return (
     <MenuLayout>
