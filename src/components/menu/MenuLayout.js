@@ -1,6 +1,6 @@
 import './Menu.css';
 
-export function MenuLayout({ func }) {
+export function MenuLayout({ children }) {
   return (
     <nav className="navbar">
       <ul className="nav-links">
@@ -8,7 +8,7 @@ export function MenuLayout({ func }) {
         <label htmlFor="checkbox-toggle" className="hamburger">
           &#9776; CATEGORIES
         </label>
-        <div className="menu">{func}</div>
+        <div className="menu">{children}</div>
       </ul>
     </nav>
   );
