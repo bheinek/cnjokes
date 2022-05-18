@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import { useFetch } from './hooks/useFetch';
+
 export function Fetch({ slug }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
