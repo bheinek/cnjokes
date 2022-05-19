@@ -3,8 +3,9 @@ import { MenuLayout } from '../';
 
 import './Menu.css';
 
-export function Menu() {
+export function Menu({ onChoose }) {
   const categories = useFetch('categories');
+
   if (categories.loading) {
     return (
       <MenuLayout>
@@ -24,7 +25,13 @@ export function Menu() {
     <MenuLayout>
       {categories.data.map((category, i) => (
         <li key={i}>
-          <a href=".">{category.toUpperCase()}</a>
+          <a
+            onClick={() => {
+              onChoose(category);
+            }}
+          >
+            {category.toUpperCase()}
+          </a>
         </li>
       ))}
     </MenuLayout>

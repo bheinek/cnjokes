@@ -1,7 +1,7 @@
 import { useFetch } from '../../hooks';
 
-export function JokesListLayout({ children }) {
-  const fetchedJoke = useFetch(children);
+export function JokesListLayout({ slug }) {
+  const fetchedJoke = useFetch(slug);
 
   if (fetchedJoke.loading) {
     return 'a moment please..';
