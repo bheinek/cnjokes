@@ -21,10 +21,17 @@
 .menu li:hover {
   background-color: rgb(167, 144, 125);
   transition: 0.5s;
+  cursor: pointer;
 }
 .menu li {
   display: inline-block;
   padding: 8px 15px;
+}
+.menu a:active {
+  background-color: rgb(167, 144, 125);
+}
+.home {
+  background-color: rgb(191, 165, 145);
 }
 /*RESPONSIVE NAVBAR MENU STARTS*/
 /* CHECKBOX HACK */

@@ -23,15 +23,23 @@ export function Menu({ onChoose }) {
 
   return (
     <MenuLayout>
+      <li
+        className="home"
+        key={'home'}
+        onClick={() => {
+          onChoose(null);
+        }}
+      >
+        HOME
+      </li>
       {categories.data.map((category, i) => (
-        <li key={i}>
-          <a
-            onClick={() => {
-              onChoose(category);
-            }}
-          >
-            {category.toUpperCase()}
-          </a>
+        <li
+          key={i}
+          onClick={() => {
+            onChoose(category);
+          }}
+        >
+          {category.toUpperCase()}
         </li>
       ))}
     </MenuLayout>
