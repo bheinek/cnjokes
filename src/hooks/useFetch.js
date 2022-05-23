@@ -1,28 +1,36 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 
-export function useFetch(slug) {
-  const [data, setData] = useState(null);
+export function useFetch(slug, numberOfCycles) {
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const dataArray = useMemo(
+    () =>
+      Array(numberOfCycles)
+        .fill(null)
+        .map((_, i) =>
+          axios
+            .get(`https://api.chucknorris.io/jokes/${slug}`)
+            .then((response) => response.data),
+        ),
+    [slug, numberOfCycles],
+  );
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(
-          `https://api.chucknorris.io/jokes/${slug}`,
-        );
-        setData(response.data);
-        //         setError(null);
+        const response = await Promise.all(dataArray);
+        setData(response);
       } catch (err) {
         setError(err.message);
-        setData(null);
       } finally {
         setLoading(false);
       }
     };
     getData();
-  }, [slug]);
+  }, [dataArray]);
 
   return { data, loading, error };
 }

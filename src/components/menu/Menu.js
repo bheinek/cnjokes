@@ -4,7 +4,7 @@ import { MenuLayout } from '../';
 import './Menu.css';
 
 export function Menu({ onChoose }) {
-  const categories = useFetch('categories');
+  const categories = useFetch('categories', 1);
 
   if (categories.loading) {
     return (
@@ -32,7 +32,7 @@ export function Menu({ onChoose }) {
       >
         HOME
       </li>
-      {categories.data.map((category, i) => (
+      {categories.data[0].map((category, i) => (
         <li
           key={i}
           onClick={() => {
