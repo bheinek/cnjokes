@@ -1,6 +1,5 @@
-import { NavLink } from 'react-router-dom';
-
 import { useFetch } from '../../hooks';
+import { ActiveCategory } from '../ActiveCategory';
 import { MenuLayout } from '../';
 
 import './Menu.css';
@@ -25,24 +24,10 @@ export function Menu({ onChoose }) {
 
   return (
     <MenuLayout>
-      <NavLink
-        className={({ isActive }) =>
-          'nav-link' + (isActive ? ' activated' : '')
-        }
-        to="/"
-      >
-        HOME
-      </NavLink>
+      <ActiveCategory category={'home'} />
       {categories.data[0].map((category, i) => (
         <li key={i}>
-          <NavLink
-            to={`/category/${category}`}
-            className={({ isActive }) =>
-              'nav-link' + (isActive ? ' activated' : '')
-            }
-          >
-            {category.toUpperCase()}
-          </NavLink>
+          <ActiveCategory category={category} />
         </li>
       ))}
     </MenuLayout>
