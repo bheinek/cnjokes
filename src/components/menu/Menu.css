@@ -39,6 +39,12 @@
 .home {
   background-color: rgb(191, 165, 145);
 }
+.menu a:active {
+  background-color: rgb(167, 144, 125);
+}
+.home {
+  background-color: rgb(191, 165, 145);
+}
 /*RESPONSIVE NAVBAR MENU STARTS*/
 /* CHECKBOX HACK */
 input[type='checkbox'] {
