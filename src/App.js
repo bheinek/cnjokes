@@ -1,18 +1,15 @@
-import { useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import { Header, JokesList, Menu } from './components';
+import { Layout } from './components/Layout';
+import { Routes } from './Routes';
 
 function App() {
-  const [category, setCategory] = useState();
-  const numberOfJokes = 10;
-
   return (
-    <div>
-      <Header />
-
-      <Menu onChoose={setCategory} />
-      <JokesList slug={category} numberOfJokes={numberOfJokes} />
-    </div>
+    <Router>
+      <Layout>
+        <Routes />
+      </Layout>
+    </Router>
   );
 }
 

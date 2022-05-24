@@ -1,12 +1,14 @@
+import { Link } from 'react-router-dom';
+
 import './Header.css';
 
 export function Header() {
   return (
     <header className="header">
       <h1>
-        <a className="title" href=".">
+        <Link className="title" to="/">
           CN Jokes
-        </a>
+        </Link>
       </h1>
       <p className="description">
         Website dedicated to facts about the greatest person in human history -

@@ -7,6 +7,7 @@ export function JokesList({ slug, numberOfJokes }) {
     slug ? 'random?category=' + slug : 'random',
     numberOfJokes,
   );
+
   const jokes = fetchedJokes.data.map((data) => data.value);
   const filteredJokes = new Set(jokes);
 
