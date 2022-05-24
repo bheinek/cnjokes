@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 import { useFetch } from '../../hooks';
 import { MenuLayout } from '../';
 
@@ -24,7 +26,14 @@ export function Menu() {
     <MenuLayout>
       {categories.data.map((category, i) => (
         <li key={i}>
-          <a href=".">{category.toUpperCase()}</a>
+          <NavLink
+            to={`/category/${category}`}
+            className={({ isActive }) =>
+              'nav-link' + (isActive ? ' activated' : '')
+            }
+          >
+            {category.toUpperCase()}
+          </NavLink>
         </li>
       ))}
     </MenuLayout>

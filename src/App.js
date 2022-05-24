@@ -1,15 +1,17 @@
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import { Header, Menu } from './components';
+import { Layout } from './components/Layout';
+import { Routes } from './Routes';
 
 import './App.css';
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Menu />
-    </div>
+    <Router>
+      <Layout>
+        <Routes />
+      </Layout>
+    </Router>
   );
 }
 
