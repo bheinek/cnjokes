@@ -14,7 +14,7 @@ export function JokesList({ slug, numberOfJokes }) {
   if (fetchedJokes.loading) {
     return (
       <div className="body">
-        {/* <h2>{slug?.toUpperCase()}</h2> */}
+        <h2>{slug?.toUpperCase()}</h2>
         <p>'a moment please..'</p>
       </div>
     );

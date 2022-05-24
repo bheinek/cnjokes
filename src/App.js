@@ -4,8 +4,6 @@ import { Layout } from './components/Layout';
 import { Routes } from './Routes';
 
 function App() {
-  //const [category, setCategory] = useState();
-
   return (
     <Router>
       <Layout>

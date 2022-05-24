@@ -10,14 +10,15 @@
   top: 0px;
   z-index: 1;
 }
-.navbar a {
-  text-decoration: inherit;
-  color: inherit;
-  padding: 0px 20px;
-}
+
 /* NAVBAR MENU */
 .menu {
   font-size: 18px;
+}
+.nav-link {
+  text-decoration: inherit;
+  color: inherit;
+  padding: 0px 20px;
 }
 .nav-link.activated {
   background-color: rgb(167, 144, 125);
@@ -34,9 +35,7 @@
 
   width: auto;
 }
-.menu a:active {
-  background-color: rgb(167, 144, 125);
-}
+
 .home {
   background-color: rgb(191, 165, 145);
 }
@@ -52,7 +51,7 @@ input[type='checkbox'] {
   user-select: none;
 }
 /* APPLYING MEDIA QUERIES */
-@media (max-width: 1975px) {
+@media (max-width: 2100px) {
   .menu {
     display: none;
     position: absolute;

@@ -25,6 +25,14 @@ export function Menu({ onChoose }) {
 
   return (
     <MenuLayout>
+      <NavLink
+        className={({ isActive }) =>
+          'nav-link' + (isActive ? ' activated' : '')
+        }
+        to="/"
+      >
+        HOME
+      </NavLink>
       {categories.data[0].map((category, i) => (
         <li key={i}>
           <NavLink
