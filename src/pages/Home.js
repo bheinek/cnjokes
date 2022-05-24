@@ -1,3 +1,7 @@
+import { JokesList } from '../components';
+
 export function Home() {
-  return <p>HOME PAGE</p>;
+  const numberOfJokes = 10;
+
+  return <JokesList slug={''} numberOfJokes={numberOfJokes} />;
 }
