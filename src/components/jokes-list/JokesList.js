@@ -3,10 +3,7 @@ import { useFetch } from '../../hooks';
 import './JokesList.css';
 
 export function JokesList({ slug, numberOfJokes }) {
-  const fetchedJokes = useFetch(
-    slug ? 'random?category=' + slug : 'random',
-    numberOfJokes,
-  );
+  const fetchedJokes = useFetch(slug, numberOfJokes);
 
   const jokes = fetchedJokes.data.map((data) => data.value);
   const filteredJokes = new Set(jokes);

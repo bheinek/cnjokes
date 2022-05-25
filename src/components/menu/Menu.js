@@ -1,6 +1,5 @@
 import { useFetch } from '../../hooks';
-import { ActiveCategory } from '../ActiveCategory';
-import { MenuLayout } from '../';
+import { ActiveCategory, MenuLayout } from '../';
 
 import './Menu.css';
 

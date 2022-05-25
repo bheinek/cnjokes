@@ -6,5 +6,7 @@ export function Category() {
   const { slug } = useParams();
   const numberOfJokes = 10;
 
-  return <JokesList slug={slug} numberOfJokes={numberOfJokes} />;
+  return (
+    <JokesList slug={'random?category=' + slug} numberOfJokes={numberOfJokes} />
+  );
 }
