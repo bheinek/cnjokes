@@ -5,7 +5,7 @@ import { Button, Form, Input } from 'reactstrap';
 import './Menu.css';
 
 export function SearchBar({ setButton, setValue, ...rest }) {
-  const [search, setSearch] = useState(null);
+  const [search, setSearch] = useState('');
   const navigate = useNavigate();
   const onSubmit = (event) => {
     event.preventDefault();
@@ -16,13 +16,13 @@ export function SearchBar({ setButton, setValue, ...rest }) {
       return alert('The search must contain between 3 and 120 letters');
     navigate(`/search/${search}`);
     setSearch('');
-    document.getElementById('search').reset();
   };
 
   return (
     <Form id="search" onSubmit={onSubmit}>
       <Input
         type="text"
+        value={search}
         onChange={(event) => setSearch(event.target.value)}
         placeholder="Vyhledat vtip ..."
       />
