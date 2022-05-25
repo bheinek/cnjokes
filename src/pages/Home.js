@@ -1,14 +1,18 @@
 import { Container } from 'reactstrap';
 
-import { JokesList, SearchBar } from '../components';
+import { JokesList } from '../components';
+import { useFetch } from '../hooks';
 
 export function Home() {
   const numberOfJokes = 10;
+  const fetchedJokes = useFetch('random', numberOfJokes);
+
+  const jokes = fetchedJokes.data.map((data) => data.value);
+  const filteredJokes = new Set(jokes);
 
   return (
     <Container>
-      <SearchBar />
-      <JokesList slug={'random'} numberOfJokes={numberOfJokes} />
+      <JokesList fetchedJokes={fetchedJokes} listOfJokes={filteredJokes} />
     </Container>
   );
 }

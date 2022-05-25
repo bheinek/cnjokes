@@ -81,3 +81,6 @@ input[type='checkbox'] {
     display: block;
   }
 }
+.search-bar {
+  width: fit-content;
+}
