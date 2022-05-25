@@ -1,16 +1,9 @@
-import { useFetch } from '../../hooks';
+import { useParams } from 'react-router-dom';
 
 import './JokesList.css';
 
-export function JokesList({ slug, numberOfJokes }) {
-  const fetchedJokes = useFetch(
-    slug ? 'random?category=' + slug : 'random',
-    numberOfJokes,
-  );
-
-  const jokes = fetchedJokes.data.map((data) => data.value);
-  const filteredJokes = new Set(jokes);
-
+export function JokesList({ fetchedJokes, listOfJokes }) {
+  const { slug } = useParams();
   if (fetchedJokes.loading) {
     return (
       <div className="body">
@@ -31,9 +24,11 @@ export function JokesList({ slug, numberOfJokes }) {
     <div className="body">
       <h2>{slug?.toUpperCase()}</h2>
 
-      {Array.from(filteredJokes).map((joke, i) => (
-        <p key={i}>{joke}</p>
-      ))}
+      {listOfJokes.length === 0 ? (
+        <p>No results found</p>
+      ) : (
+        Array.from(listOfJokes).map((joke, i) => <p key={i}>{joke}</p>)
+      )}
     </div>
   );
 }

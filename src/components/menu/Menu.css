@@ -45,6 +45,10 @@
 .home {
   background-color: rgb(191, 165, 145);
 }
+
+#search {
+  padding: 1px;
+}
 /*RESPONSIVE NAVBAR MENU STARTS*/
 /* CHECKBOX HACK */
 input[type='checkbox'] {

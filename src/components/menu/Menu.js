@@ -1,6 +1,7 @@
 import { useFetch } from '../../hooks';
-import { ActiveCategory } from '../ActiveCategory';
-import { MenuLayout } from '../';
+import { ActiveCategory, MenuLayout } from '../';
+
+import { SearchBar } from './SearchBar';
 
 import './Menu.css';
 
@@ -24,6 +25,9 @@ export function Menu({ onChoose }) {
 
   return (
     <MenuLayout>
+      <li>
+        <SearchBar />
+      </li>
       <ActiveCategory category={'home'} />
       {categories.data[0].map((category, i) => (
         <li key={i}>

@@ -1,10 +1,15 @@
 import { useParams } from 'react-router-dom';
 
 import { JokesList } from '../components';
+import { useFetch } from '../hooks';
 
 export function Category() {
-  const { slug } = useParams();
   const numberOfJokes = 10;
+  const { slug } = useParams();
+  const fetchedJokes = useFetch('random?category=' + slug, numberOfJokes);
 
-  return <JokesList slug={slug} numberOfJokes={numberOfJokes} />;
+  const jokes = fetchedJokes.data.map((data) => data.value);
+  const filteredJokes = new Set(jokes);
+
+  return <JokesList fetchedJokes={fetchedJokes} listOfJokes={filteredJokes} />;
 }
