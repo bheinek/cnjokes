@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Container, Form } from 'reactstrap';
 
 import { JokesList } from '../components';
-import { Dropdown } from '../components/Dropdown';
+import { Dropdown } from '../components/Dropdown/Dropdown';
 import { useFetch } from '../hooks';
 
 export function Home() {
