@@ -4,7 +4,7 @@ import { JokesList } from '../components';
 import { useFetch } from '../hooks';
 
 export function Category() {
-  const numberOfJokes = 10;
+  const numberOfJokes = 20;
   const { slug } = useParams();
   const fetchedJokes = useFetch('random?category=' + slug, numberOfJokes);
 

@@ -8,7 +8,7 @@ export function useFetch(slug, numberOfCycles) {
 
   const dataArray = useMemo(
     () =>
-      Array(numberOfCycles)
+      Array(Number(numberOfCycles))
         .fill(null)
         .map((_, i) =>
           axios
@@ -17,10 +17,10 @@ export function useFetch(slug, numberOfCycles) {
         ),
     [slug, numberOfCycles],
   );
-
   useEffect(() => {
     const getData = async () => {
       try {
+        setLoading(true);
         const response = await Promise.all(dataArray);
         setData(response);
       } catch (err) {
