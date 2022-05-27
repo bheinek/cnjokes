@@ -1,5 +1,3 @@
-import './Menu.css';
-
 export function MenuLayout({ children }) {
   return (
     <nav className="navbar">

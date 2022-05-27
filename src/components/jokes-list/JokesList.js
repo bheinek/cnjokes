@@ -1,7 +1,5 @@
 import { useParams } from 'react-router-dom';
 
-import './JokesList.css';
-
 export function JokesList({ fetchedJokes, listOfJokes }) {
   const { slug } = useParams();
   if (fetchedJokes.loading) {

@@ -3,23 +3,21 @@ import { ActiveCategory, MenuLayout } from '../';
 
 import { SearchBar } from './SearchBar';
 
-import './Menu.css';
-
 export function Menu({ onChoose }) {
   const categories = useFetch('categories', 1);
 
   if (categories.loading) {
     return (
-      <MenuLayout>
+      <div>
         <li> a moment please..</li>
-      </MenuLayout>
+      </div>
     );
   }
   if (categories.error) {
     return (
-      <MenuLayout>
+      <div>
         <li> There is a problem fetching data ${categories.error}</li>
-      </MenuLayout>
+      </div>
     );
   }
 

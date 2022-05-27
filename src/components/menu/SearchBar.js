@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input } from 'reactstrap';
 
-import './Menu.css';
-
 export function SearchBar() {
   const [search, setSearch] = useState('');
   const navigate = useNavigate();

@@ -1,7 +1,5 @@
 import { Label } from 'reactstrap';
 
-import './Dropdown.css';
-
 export function Dropdown({ number, setNumber }) {
   const numbers = Array(10)
     .fill('')

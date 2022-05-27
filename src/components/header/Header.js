@@ -1,19 +1,20 @@
+//import { css } from '@emotion/react';
 import { Link } from 'react-router-dom';
 
-import './Header.css';
+import headerImage from '../../images/background.jpg';
+import { HeaderWrapper, MainTitle } from '../../styles.js';
 
 export function Header() {
   return (
-    <header className="header">
-      <h1>
-        <Link className="title" to="/">
-          CN Jokes
-        </Link>
-      </h1>
+    <HeaderWrapper img={headerImage}>
+      <MainTitle>
+        <Link to="/">CN Jokes</Link>
+      </MainTitle>
+
       <p className="description">
         Website dedicated to facts about the greatest person in human history -
         Mr. Chuck Norris{' '}
       </p>
-    </header>
+    </HeaderWrapper>
   );
 }
