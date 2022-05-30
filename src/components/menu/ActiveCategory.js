@@ -1,12 +1,12 @@
-import { NavLink } from 'react-router-dom';
+import { MenuBar } from '../../styles';
 
 export function ActiveCategory({ category }) {
   return (
-    <NavLink
+    <MenuBar
       to={category === 'home' ? '' : `/category/${category}`}
       className={({ isActive }) => 'nav-link' + (isActive ? ' activated' : '')}
     >
       {category.toUpperCase()}
-    </NavLink>
+    </MenuBar>
   );
 }

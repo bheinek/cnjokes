@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { BsSearch } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
-import { Button, Form, Input } from 'reactstrap';
+
+import { JokesSearch, SearchButton, SearchField } from '../../styles';
 
 export function SearchBar() {
   const [search, setSearch] = useState('');
@@ -17,14 +19,17 @@ export function SearchBar() {
   };
 
   return (
-    <Form id="search" onSubmit={handleSubmit}>
-      <Input
+    <JokesSearch onSubmit={handleSubmit}>
+      <SearchField
         type="text"
         value={search}
         onChange={(event) => setSearch(event.target.value)}
-        placeholder="Vyhledat vtip ..."
+        placeholder="Search jokes ..."
       />
-      <Button type="submit">Search</Button>
-    </Form>
+      <SearchButton type="submit">
+        {' '}
+        <BsSearch />
+      </SearchButton>
+    </JokesSearch>
   );
 }

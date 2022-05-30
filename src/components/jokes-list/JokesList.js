@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
 
+import { JokeCard, JokesListLayout } from '../../styles';
+
 export function JokesList({ fetchedJokes, listOfJokes }) {
   const { slug } = useParams();
   if (fetchedJokes.loading) {
@@ -19,14 +21,16 @@ export function JokesList({ fetchedJokes, listOfJokes }) {
     );
   }
   return (
-    <div className="body">
+    <JokesListLayout>
       <h2>{slug?.toUpperCase()}</h2>
 
       {listOfJokes.length === 0 ? (
         <p>No results found</p>
       ) : (
-        Array.from(listOfJokes).map((joke, i) => <p key={i}>{joke}</p>)
+        Array.from(listOfJokes).map((joke, i) => (
+          <JokeCard key={i}>{joke}</JokeCard>
+        ))
       )}
-    </div>
+    </JokesListLayout>
   );
 }

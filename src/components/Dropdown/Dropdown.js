@@ -6,13 +6,9 @@ export function Dropdown({ number, setNumber }) {
     .map((_, i) => (i + 1) * 5);
 
   return (
-    <div className="dropdown-footer">
-      <Label className="dropdown-title">Select displayed number of Jokes</Label>
-      <select
-        className="dropdown"
-        value={number}
-        onChange={(e) => setNumber(e.target.value)}
-      >
+    <div>
+      <Label>Select displayed number of Jokes</Label>
+      <select value={number} onChange={(e) => setNumber(e.target.value)}>
         {numbers.map((_number) => (
           <option key={_number}>{_number}</option>
         ))}

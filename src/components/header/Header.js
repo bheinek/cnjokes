@@ -1,18 +1,27 @@
-//import { css } from '@emotion/react';
 import headerImage from '../../images/background.jpg';
-import { Desciption, HeaderWrapper, MainTitle, Title } from '../../styles.js';
+import {
+  Desciption,
+  HeaderWrapper,
+  MainTitle,
+  Title,
+  TitleWrapper,
+} from '../../styles.js';
+import { Menu } from '..';
 
 export function Header() {
   return (
     <HeaderWrapper img={headerImage}>
-      <MainTitle>
-        <Title to="/">CN Jokes</Title>
-      </MainTitle>
+      <TitleWrapper>
+        <MainTitle>
+          <Title to="/">CN Jokes</Title>
+        </MainTitle>
 
-      <Desciption>
-        Website dedicated to facts about the greatest person in human history -
-        Mr. Chuck Norris{' '}
-      </Desciption>
+        <Desciption>
+          Website dedicated to facts about the greatest person in human history
+          - Mr. Chuck Norris{' '}
+        </Desciption>
+      </TitleWrapper>
+      <Menu />
     </HeaderWrapper>
   );
 }
