@@ -1,20 +1,18 @@
 //import { css } from '@emotion/react';
-import { Link } from 'react-router-dom';
-
 import headerImage from '../../images/background.jpg';
-import { HeaderWrapper, MainTitle } from '../../styles.js';
+import { Desciption, HeaderWrapper, MainTitle, Title } from '../../styles.js';
 
 export function Header() {
   return (
     <HeaderWrapper img={headerImage}>
       <MainTitle>
-        <Link to="/">CN Jokes</Link>
+        <Title to="/">CN Jokes</Title>
       </MainTitle>
 
-      <p className="description">
+      <Desciption>
         Website dedicated to facts about the greatest person in human history -
         Mr. Chuck Norris{' '}
-      </p>
+      </Desciption>
     </HeaderWrapper>
   );
 }
