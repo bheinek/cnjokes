@@ -1,11 +1,16 @@
-import { useFetch } from '../../hooks';
-import { MenuLayout } from '../../styles';
-import { ActiveCategory } from '../';
+import { useState } from 'react';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
+import { useFetch } from '../../hooks';
+import { MenuButton, MenuLayout, OnShowMenu } from '../../styles';
+
+import { ActiveCategory } from './ActiveCategory';
 import { SearchBar } from './SearchBar';
 
 export function Menu({ onChoose }) {
   const categories = useFetch('categories', 1);
+  const [isExpended, setIsExpended] = useState(false);
+  console.log(isExpended);
 
   if (categories.loading) {
     return (
@@ -24,11 +29,17 @@ export function Menu({ onChoose }) {
 
   return (
     <MenuLayout>
-      <ActiveCategory category={'home'} />
-      {categories.data[0].map((category, i) => (
-        <ActiveCategory category={category} key={i} />
-      ))}
+      <MenuButton onClick={() => setIsExpended(!isExpended)}>
+        <GiHamburgerMenu />
+      </MenuButton>
+
       <SearchBar />
+      <OnShowMenu isShown={isExpended ? 'flex' : 'none'}>
+        <ActiveCategory category={'home'} />
+        {categories.data[0].map((category, i) => (
+          <ActiveCategory category={category} key={i} />
+        ))}
+      </OnShowMenu>
     </MenuLayout>
   );
 }

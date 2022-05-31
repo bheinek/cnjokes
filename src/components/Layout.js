@@ -1,12 +1,13 @@
-import { Container } from 'reactstrap';
+import { Body, WebsiteWrapper } from '../styles';
 
-import { Header } from './';
+import { Header, Menu } from './';
 
 export function Layout({ children }) {
   return (
-    <>
+    <WebsiteWrapper>
       <Header />
-      <Container className="mt-4">{children}</Container>
-    </>
+      <Menu />
+      <Body> {children}</Body>
+    </WebsiteWrapper>
   );
 }

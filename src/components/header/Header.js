@@ -6,7 +6,6 @@ import {
   Title,
   TitleWrapper,
 } from '../../styles.js';
-import { Menu } from '..';
 
 export function Header() {
   return (
@@ -21,7 +20,6 @@ export function Header() {
           - Mr. Chuck Norris{' '}
         </Desciption>
       </TitleWrapper>
-      <Menu />
     </HeaderWrapper>
   );
 }

@@ -1,9 +1,9 @@
 export const theme = {
   colors: {
     primary: 'White',
-    secondary: 'black',
+    secondary: 'White',
     tertiary: 'gray',
-    quaternary: 'white',
+    quaternary: 'purple',
   },
   fonts: {
     primary: 'Georgia',
@@ -12,5 +12,8 @@ export const theme = {
   fontSize: {
     primary: '20px',
     secondary: '12px',
+  },
+  height: {
+    primary: '20px',
   },
 };
