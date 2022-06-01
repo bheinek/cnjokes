@@ -10,7 +10,6 @@ import { SearchBar } from './SearchBar';
 export function Menu({ onChoose }) {
   const categories = useFetch('categories', 1);
   const [isExpended, setIsExpended] = useState(false);
-  console.log(isExpended);
 
   if (categories.loading) {
     return (

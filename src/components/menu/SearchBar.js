@@ -6,21 +6,20 @@ import { JokesSearch, SearchButton, SearchField } from '../../styles';
 
 export function SearchBar() {
   const [search, setSearch] = useState('');
+
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!search) {
-      return alert('Please write what you are searching for!');
-    }
-    if (search.length < 3 || search.length > 120)
-      return alert('The search must contain between 3 and 120 letters');
     navigate(`/search/${search}`);
     setSearch('');
   };
 
   return (
-    <JokesSearch onSubmit={handleSubmit}>
+    <JokesSearch onHover onSubmit={handleSubmit}>
       <SearchField
+        required
+        minLength={3}
+        maxLength={120}
         type="text"
         value={search}
         onChange={(event) => setSearch(event.target.value)}

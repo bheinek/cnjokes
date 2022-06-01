@@ -2,17 +2,17 @@ import styled from '@emotion/styled';
 import { Link, NavLink } from 'react-router-dom';
 import { Button, Container, Form, Input } from 'reactstrap';
 
-export const WebsiteWrapper = styled.div({
+export const WebsiteWrapper = styled.div((props) => ({
   minHeight: '100vh',
-  backgroundColor: '#F1F1F1',
-});
+  backgroundColor: `${props.theme.colors.primary}`,
+}));
 
 //Header style - Title, description
 
 export const HeaderWrapper = styled.div((props) => ({
   backgroundImage: `url(${props.img})`,
-  color: `${props.theme.colors.primary}`,
-  fontFamily: `${props.theme.fonts.primary}`,
+  color: `${props.theme.colors.secondary}`,
+  fontFamily: `${props.theme.fonts.secondary}`,
 }));
 
 export const TitleWrapper = styled.div((props) => ({
@@ -40,6 +40,7 @@ export const Title = styled(Link)({
 //Menu style
 
 export const MenuLayout = styled.div((props) => ({
+  fontFamily: `${props.theme.fonts.primary}`,
   position: 'sticky',
   top: '0px',
   display: 'flex',
@@ -87,10 +88,11 @@ export const JokesSearch = styled(Form)((props) => ({
   maxWidth: '200px',
   margin: '0px 20px',
   display: 'flex',
-  backgroundColor: `${props.theme.colors.quaternary}`,
+  backgroundColor: 'inherit',
   borderRadius: '20px',
   border: '1px solid gray',
-  color: `${props.theme.colors.secondary}`,
+  color: 'inherit',
+  overflow: 'hidden',
 }));
 
 export const SearchButton = styled(Button)((props) => ({
@@ -99,15 +101,22 @@ export const SearchButton = styled(Button)((props) => ({
   border: 'none',
   cursor: 'pointer',
   color: 'inherit',
+  ':hover': {
+    backgroundColor: `${props.theme.colors.tertiary}`,
+  },
 }));
 
-export const SearchField = styled(Input)({
+export const SearchField = styled(Input)((props) => ({
+  display: '',
   paddingLeft: '10px',
   borderRadius: '20px',
   border: 'none',
   background: 'transparent',
   color: 'inherit',
-});
+  '::placeholder': {
+    color: 'inherit',
+  },
+}));
 
 //body
 
@@ -144,7 +153,8 @@ export const CategoryTitle = styled.h2({
 //Dropdown menu
 export const DropDownLayout = styled(Form)((props) => ({
   backgroundColor: `${props.theme.colors.quaternary}`,
-
+  fontFamily: `${props.theme.fonts.primary}`,
+  padding: '10px',
   position: 'sticky',
   textAlign: 'center',
   width: '100%',
@@ -152,3 +162,12 @@ export const DropDownLayout = styled(Form)((props) => ({
   color: `${props.theme.colors.secondary}`,
   bottom: '0px',
 }));
+
+export const DropDownSelect = styled.select({
+  backgroundColor: 'inherit',
+  color: 'inherit',
+  margin: '0 10px',
+  padding: '0 10px',
+  border: 'none',
+  boxShadow: '1px 1px 1px 1px black',
+});

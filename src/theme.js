@@ -1,13 +1,13 @@
 export const theme = {
   colors: {
-    primary: 'White',
-    secondary: 'White',
-    tertiary: 'gray',
+    primary: '#F1F1F1',
+    secondary: 'white',
+    tertiary: '#ee9c15',
     quaternary: 'purple',
   },
   fonts: {
     primary: 'Georgia',
-    secondary: "1.2em 'Fira Sans', sans-serif",
+    secondary: "'Fira Sans', sans-serif",
   },
   fontSize: {
     primary: '20px',

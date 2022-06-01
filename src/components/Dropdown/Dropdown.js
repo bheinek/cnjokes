@@ -1,5 +1,7 @@
 import { Label } from 'reactstrap';
 
+import { DropDownSelect } from '../../styles';
+
 export function Dropdown({ number, setNumber }) {
   const numbers = Array(10)
     .fill('')
@@ -8,11 +10,14 @@ export function Dropdown({ number, setNumber }) {
   return (
     <div>
       <Label>Select displayed number of Jokes</Label>
-      <select value={number} onChange={(e) => setNumber(e.target.value)}>
+      <DropDownSelect
+        value={number}
+        onChange={(e) => setNumber(e.target.value)}
+      >
         {numbers.map((_number) => (
           <option key={_number}>{_number}</option>
         ))}
-      </select>
+      </DropDownSelect>
     </div>
   );
 }
