@@ -60,12 +60,12 @@ export const OnShowMenu = styled.div((props) => ({
 }));
 
 export const MenuBar = styled(NavLink)((props) => ({
-  textDecoration: 'inherit',
-  color: 'inherit',
+  textDecoration: 'none',
+  color: props.theme.colors.secondary,
   textAlign: 'center',
   padding: '10px 20px',
   ':hover': {
-    backgroundColor: `${props.theme.colors.tertiary}`,
+    backgroundColor: props.theme.colors.tertiary,
   },
 }));
 
@@ -101,13 +101,9 @@ export const SearchButton = styled(Button)((props) => ({
   border: 'none',
   cursor: 'pointer',
   color: 'inherit',
-  ':hover': {
-    backgroundColor: `${props.theme.colors.tertiary}`,
-  },
 }));
 
 export const SearchField = styled(Input)((props) => ({
-  display: '',
   paddingLeft: '10px',
   borderRadius: '20px',
   border: 'none',

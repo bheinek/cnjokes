@@ -15,7 +15,7 @@ export function SearchBar() {
   };
 
   return (
-    <JokesSearch onHover onSubmit={handleSubmit}>
+    <JokesSearch onSubmit={handleSubmit}>
       <SearchField
         required
         minLength={3}
