@@ -1,4 +1,4 @@
-export function RandomColor() {
+export function getRandomColor() {
   const colors = [
     'red',
     'purple',
@@ -12,6 +12,5 @@ export function RandomColor() {
     'orange',
   ];
 
-  const getRandomColor = colors[Math.floor(Math.random() * 10)];
-  return getRandomColor;
+  return colors[Math.floor(Math.random() * 10)];
 }
