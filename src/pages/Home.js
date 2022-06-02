@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Container, Form } from 'reactstrap';
 
 import { JokesList } from '../components';
 import { Dropdown } from '../components/Dropdown/Dropdown';
 import { useFetch } from '../hooks';
+import headerImage from '../images/background.jpg';
+import { DropDownLayout, JokesListLayout } from '../styles';
 
 export function Home() {
   const [numberOfJokes, setNumberOfJokes] = useState(10);
@@ -13,17 +14,15 @@ export function Home() {
   const filteredJokes = new Set(jokes);
 
   return (
-    <Container>
+    <JokesListLayout>
       <JokesList
         fetchedJokes={fetchedJokes}
         listOfJokes={filteredJokes}
         numberOfJokes={numberOfJokes}
       />
-      <Form>
-        <div className="form-control">
-          <Dropdown number={numberOfJokes} setNumber={setNumberOfJokes} />
-        </div>
-      </Form>
-    </Container>
+      <DropDownLayout img={headerImage}>
+        <Dropdown number={numberOfJokes} setNumber={setNumberOfJokes} />
+      </DropDownLayout>
+    </JokesListLayout>
   );
 }

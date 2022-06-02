@@ -1,19 +1,25 @@
-import { Link } from 'react-router-dom';
-
-import './Header.css';
+import headerImage from '../../images/background.jpg';
+import {
+  Desciption,
+  HeaderWrapper,
+  MainTitle,
+  Title,
+  TitleWrapper,
+} from '../../styles.js';
 
 export function Header() {
   return (
-    <header className="header">
-      <h1>
-        <Link className="title" to="/">
-          CN Jokes
-        </Link>
-      </h1>
-      <p className="description">
-        Website dedicated to facts about the greatest person in human history -
-        Mr. Chuck Norris{' '}
-      </p>
-    </header>
+    <HeaderWrapper img={headerImage}>
+      <TitleWrapper>
+        <MainTitle>
+          <Title to="/">CN Jokes</Title>
+        </MainTitle>
+
+        <Desciption>
+          Website dedicated to facts about the greatest person in human history
+          - Mr. Chuck Norris{' '}
+        </Desciption>
+      </TitleWrapper>
+    </HeaderWrapper>
   );
 }

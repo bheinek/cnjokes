@@ -1,34 +1,43 @@
 import { useParams } from 'react-router-dom';
 
-import './JokesList.css';
+import { CategoryTitle, JokeCard, JokesListLayout } from '../../styles';
+
+import { getRandomColor } from './getRandomColor';
 
 export function JokesList({ fetchedJokes, listOfJokes }) {
   const { slug } = useParams();
   if (fetchedJokes.loading) {
     return (
-      <div className="body">
-        <h2>{slug?.toUpperCase()}</h2>
+      <JokesListLayout>
+        <CategoryTitle>{slug?.toUpperCase()}</CategoryTitle>
         <p>'a moment please..'</p>
-      </div>
+      </JokesListLayout>
     );
   }
   if (fetchedJokes.error) {
     return (
-      <div className="body">
-        <h2>{slug?.toUpperCase()}</h2>
+      <JokesListLayout>
+        <CategoryTitle>{slug?.toUpperCase()}</CategoryTitle>
         <p>There is a problem fetching data '{fetchedJokes.error}</p>
-      </div>
+      </JokesListLayout>
     );
   }
   return (
-    <div className="body">
-      <h2>{slug?.toUpperCase()}</h2>
+    <JokesListLayout>
+      <CategoryTitle>{slug?.toUpperCase()}</CategoryTitle>
 
       {listOfJokes.length === 0 ? (
         <p>No results found</p>
       ) : (
-        Array.from(listOfJokes).map((joke, i) => <p key={i}>{joke}</p>)
+        Array.from(listOfJokes).map((joke, i) => {
+          const randomColor = getRandomColor();
+          return (
+            <JokeCard key={i} randomColor={randomColor}>
+              {joke}
+            </JokeCard>
+          );
+        })
       )}
-    </div>
+    </JokesListLayout>
   );
 }

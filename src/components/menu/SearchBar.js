@@ -1,32 +1,33 @@
 import { useState } from 'react';
+import { BsSearch } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
-import { Button, Form, Input } from 'reactstrap';
 
-import './Menu.css';
+import { JokesSearch, SearchButton, SearchField } from '../../styles';
 
 export function SearchBar() {
   const [search, setSearch] = useState('');
+
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!search) {
-      return alert('Please write what you are searching for!');
-    }
-    if (search.length < 3 || search.length > 120)
-      return alert('The search must contain between 3 and 120 letters');
     navigate(`/search/${search}`);
     setSearch('');
   };
 
   return (
-    <Form id="search" onSubmit={handleSubmit}>
-      <Input
+    <JokesSearch onSubmit={handleSubmit}>
+      <SearchField
+        required
+        minLength={3}
+        maxLength={120}
         type="text"
         value={search}
         onChange={(event) => setSearch(event.target.value)}
-        placeholder="Vyhledat vtip ..."
+        placeholder="Search jokes ..."
       />
-      <Button type="submit">Search</Button>
-    </Form>
+      <SearchButton type="submit">
+        <BsSearch />
+      </SearchButton>
+    </JokesSearch>
   );
 }

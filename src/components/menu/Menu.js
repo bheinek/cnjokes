@@ -1,39 +1,44 @@
+import { useState } from 'react';
+import { GiHamburgerMenu } from 'react-icons/gi';
+
 import { useFetch } from '../../hooks';
-import { ActiveCategory, MenuLayout } from '../';
+import { MenuButton, MenuLayout, ResponsiveMenu } from '../../styles';
 
+import { ActiveCategory } from './ActiveCategory';
 import { SearchBar } from './SearchBar';
-
-import './Menu.css';
 
 export function Menu({ onChoose }) {
   const categories = useFetch('categories', 1);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   if (categories.loading) {
     return (
-      <MenuLayout>
+      <div>
         <li> a moment please..</li>
-      </MenuLayout>
+      </div>
     );
   }
   if (categories.error) {
     return (
-      <MenuLayout>
+      <div>
         <li> There is a problem fetching data ${categories.error}</li>
-      </MenuLayout>
+      </div>
     );
   }
 
   return (
     <MenuLayout>
-      <li>
-        <SearchBar />
-      </li>
-      <ActiveCategory category={'home'} />
-      {categories.data[0].map((category, i) => (
-        <li key={i}>
-          <ActiveCategory category={category} />
-        </li>
-      ))}
+      <MenuButton onClick={() => setIsExpanded(!isExpanded)}>
+        <GiHamburgerMenu />
+      </MenuButton>
+
+      <SearchBar />
+      <ResponsiveMenu isShown={isExpanded ? 'flex' : 'none'}>
+        <ActiveCategory category={'home'} />
+        {categories.data[0].map((category, i) => (
+          <ActiveCategory category={category} key={i} />
+        ))}
+      </ResponsiveMenu>
     </MenuLayout>
   );
 }

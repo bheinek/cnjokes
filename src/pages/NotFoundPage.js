@@ -1,3 +1,9 @@
+import { JokeCard, JokesListLayout } from '../styles';
+
 export function NotFoundPage() {
-  return <div>nothing</div>;
+  return (
+    <JokesListLayout>
+      <JokeCard>404 - PAGE NOT FOUND</JokeCard>
+    </JokesListLayout>
+  );
 }
