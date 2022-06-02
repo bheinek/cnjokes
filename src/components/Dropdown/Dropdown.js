@@ -9,8 +9,9 @@ export function Dropdown({ number, setNumber }) {
 
   return (
     <div>
-      <Label>Select displayed number of Jokes</Label>
+      <Label htmlFor="bottomDropDown">Select displayed number of Jokes</Label>
       <DropDownSelect
+        id="bottomDropDown"
         value={number}
         onChange={(e) => setNumber(e.target.value)}
       >

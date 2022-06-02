@@ -26,7 +26,6 @@ export function SearchBar() {
         placeholder="Search jokes ..."
       />
       <SearchButton type="submit">
-        {' '}
         <BsSearch />
       </SearchButton>
     </JokesSearch>

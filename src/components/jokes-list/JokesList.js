@@ -2,20 +2,9 @@ import { useParams } from 'react-router-dom';
 
 import { CategoryTitle, JokeCard, JokesListLayout } from '../../styles';
 
-export function JokesList({ fetchedJokes, listOfJokes }) {
-  const colors = [
-    'red',
-    'purple',
-    'gray',
-    'green',
-    'blue',
-    'yellow',
-    'black',
-    'brown',
-    'pink',
-    'orange',
-  ];
+import { RandomColor } from './RandomColor';
 
+export function JokesList({ fetchedJokes, listOfJokes }) {
   const { slug } = useParams();
   if (fetchedJokes.loading) {
     return (
@@ -41,7 +30,7 @@ export function JokesList({ fetchedJokes, listOfJokes }) {
         <p>No results found</p>
       ) : (
         Array.from(listOfJokes).map((joke, i) => {
-          const getRandomColor = colors[Math.floor(Math.random() * 10)];
+          const getRandomColor = RandomColor();
           return (
             <JokeCard key={i} randomColor={getRandomColor}>
               {joke}

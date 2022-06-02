@@ -4,15 +4,15 @@ import { Button, Container, Form, Input } from 'reactstrap';
 
 export const WebsiteWrapper = styled.div((props) => ({
   minHeight: '100vh',
-  backgroundColor: `${props.theme.colors.primary}`,
+  backgroundColor: props.theme.colors.primary,
 }));
 
 //Header style - Title, description
 
 export const HeaderWrapper = styled.div((props) => ({
   backgroundImage: `url(${props.img})`,
-  color: `${props.theme.colors.secondary}`,
-  fontFamily: `${props.theme.fonts.secondary}`,
+  color: props.theme.colors.secondary,
+  fontFamily: props.theme.fonts.secondary,
 }));
 
 export const TitleWrapper = styled.div((props) => ({
@@ -40,21 +40,21 @@ export const Title = styled(Link)({
 //Menu style
 
 export const MenuLayout = styled.div((props) => ({
-  fontFamily: `${props.theme.fonts.primary}`,
+  fontFamily: props.theme.fonts.primary,
   position: 'sticky',
   top: '0px',
   display: 'flex',
   flexWrap: 'wrap',
   width: '100%',
-  backgroundColor: `${props.theme.colors.quaternary}`,
-  color: `${props.theme.colors.secondary}`,
+  backgroundColor: props.theme.colors.quaternary,
+  color: props.theme.colors.secondary,
 }));
 
-export const OnShowMenu = styled.div((props) => ({
+export const ResponsiveMenu = styled.div((props) => ({
   display: 'flex',
   flexWrap: 'wrap',
   '@media screen and (max-width: 2000px)': {
-    display: `${props.isShown}`,
+    display: props.isShown,
     justifyContent: 'center',
   },
 }));
@@ -148,14 +148,14 @@ export const CategoryTitle = styled.h2({
 
 //Dropdown menu
 export const DropDownLayout = styled(Form)((props) => ({
-  backgroundColor: `${props.theme.colors.quaternary}`,
-  fontFamily: `${props.theme.fonts.primary}`,
+  backgroundColor: props.theme.colors.quaternary,
+  fontFamily: props.theme.fonts.primary,
   padding: '10px',
   position: 'sticky',
   textAlign: 'center',
   width: '100%',
-  height: `${props.theme.height.primary}`,
-  color: `${props.theme.colors.secondary}`,
+  height: props.theme.height.primary,
+  color: props.theme.colors.secondary,
   bottom: '0px',
 }));
 
